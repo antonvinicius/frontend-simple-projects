@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        .accordion:after {
+            content: '\02795';
+            float: right;
+            font-size: 10px;
+        }
+
+        .active:after {
+            content: '\02796';
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            max-height: 0;
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, veniam. Accusamus repudiandae, explicabo fugit
+            iste dolores temporibus error deleniti, qui modi omnis rerum vitae officia! Doloremque eligendi tempore
+            nesciunt similique.</p>
+    </div>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, veniam. Accusamus repudiandae, explicabo fugit
+            iste dolores temporibus error deleniti, qui modi omnis rerum vitae officia! Doloremque eligendi tempore
+            nesciunt similique.</p>
+    </div>
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, veniam. Accusamus repudiandae, explicabo fugit
+            iste dolores temporibus error deleniti, qui modi omnis rerum vitae officia! Doloremque eligendi tempore
+            nesciunt similique.</p>
+    </div>
+    <button class="accordion">Section 4</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, veniam. Accusamus repudiandae, explicabo fugit
+            iste dolores temporibus error deleniti, qui modi omnis rerum vitae officia! Doloremque eligendi tempore
+            nesciunt similique.</p>
+    </div>
+
+    <script>
+        var accordions = document.getElementsByClassName('accordion')
+        for (const accordion of accordions) {
+            accordion.addEventListener('click', () => {
+                accordion.classList.toggle('active')
+                var panel = accordion.nextElementSibling
+                panel.style.display = 'block'
+                panel.style.maxHeight = panel.style.maxHeight === "" ? panel.scrollHeight + "px" : "";
+
+            })
+        }
+    </script>
+</body>
+
+</html>
