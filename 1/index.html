@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #vertical .icon-bar {
+            width: 300px;
+            background-color: #555;
+        }
+
+        #vertical .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.4s ease;
+            color: #ddd;
+            font-size: 32px;
+        }
+
+        #horizontal .icon-bar {
+            width: 100%;
+            overflow: auto;
+            background-color: #555;
+        }
+
+        #horizontal .icon-bar a {
+            float: left;
+            width: 20%;
+            text-align: center;
+            font-size: 32px;
+            padding: 16px;
+            color: #ddd;
+            transition: all 0.4s ease;
+        }
+
+        .active {
+            background-color: #001f3f;
+        }
+
+        .icon-bar a:hover {
+            background-color: #3D9970;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="vertical">
+        <nav class="icon-bar">
+            <a href="#"><i class="fa fa-home"></i></a>
+            <a href="#"><i class="fa fa-search"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+            <a href="#"><i class="fa fa-globe"></i></a>
+            <a href="#"><i class="fa fa-trash"></i></a>
+        </nav>
+    </section>
+    <br />
+    <section id="horizontal">
+        <nav class="icon-bar">
+            <a href="#"><i class="fa fa-home"></i></a>
+            <a href="#"><i class="fa fa-search"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+            <a href="#"><i class="fa fa-globe"></i></a>
+            <a href="#"><i class="fa fa-trash"></i></a>
+        </nav>
+    </section>
+
+    <script>
+        function setActive(e){
+            e.target.classList.toggle('active')
+        }
+
+        var links = document.getElementsByClassName('icon-bar')
+        links = [... links];
+        links.forEach(link => link.setAttribute('onclick','setActive(event)'));
+    </script>
+</body>
+
+</html>
